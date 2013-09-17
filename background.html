@@ -1,8 +1,14 @@
 <html>
+<script type="text/javascript" src="lawnchair.js" />
+<!--script type="text/javascript" src="lctest.js" / -->
   <script>
+  	var people = new Lawnchair('people');
     chrome.extension.onRequest.addListener(function(request, sender, sendResponse) {
  	 if (request.greeting == "savesearch"){
-    	var1 = request.URL; 
+    	var1 = {'URL':request.URL}; 
+
+    	people.save(var1);
+    	console.log(request.URL)
  		 }
   else{
     sendResponse({});    // Stop

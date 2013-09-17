@@ -11,6 +11,10 @@
       "js": ["addbutton.js"]
     }
   ],
+"background":{
+  "scripts": ["lawnchair.js", "background.js"],
+  "persistent": false
+  },
 
   "permissions": [
     "https://craigslist.org/"
