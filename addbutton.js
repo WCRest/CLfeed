@@ -5,7 +5,7 @@ btn.appendChild(t);
 btn.onclick = function(){
 	chrome.extension.sendMessage({
   	"greeting": "savesearch",
-  	"URL": document.URL, 
+  	"URL": document.URL
 }); 
 	console.log("attempt message");
 };

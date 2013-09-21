@@ -12,6 +12,12 @@ if (request.greeting == "savesearch"){
     		console.log(r)
     	});
  		 }
+ else if(request.greeting == "popup"){
+ 	console.log("received message from popup");
+ 	chrome.extension.sendMessage({
+ 		"greeting": "hitest"
+ 	});
+ }
   else {
     sendResponse({});    // Stop
   }
