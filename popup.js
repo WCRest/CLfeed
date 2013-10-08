@@ -1,11 +1,19 @@
 var popupLoader = function(){
 	chrome.runtime.onMessage.addListener(
 		function(request, sender, sendResponse){
-			//console.log(request.greeting + " is the greeting for poplistener");
 			if(request.greeting == "hitest"){
-				console.log("#######received test URL from background page");
-				alert("received test URL");
+				console.log(request.lawnchair);
+				console.log("Popup received " + request.lawnchair.length + " searches");
+			
+			for(var i = 0; i <  request.lawnchair.length; i++){
+				saved = request.lawnchair[i];
+				var a = document.createElement('a');
+				var linkText = document.createTextNode(saved.key);
+				a.appendChild(linkText);
+				a.href = saved.key;
+				document.body.appendChild(a);
 			}
+		}
 		}
 	)
 	console.log("popup loaded at least");

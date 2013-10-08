@@ -1,3 +1,6 @@
+
+var toSave = {"URL":document.URL}
+
 buttonLocation = document.getElementById("searchtable").childNodes[1];
 var btn = document.createElement("BUTTON");
 var t = document.createTextNode("Supersave");

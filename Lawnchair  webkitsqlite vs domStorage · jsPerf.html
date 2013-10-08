@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<!-- saved from url=(0056)http://jsperf.com/lawnchair-webkitsqlite-vs-domstorage/8 -->
+<html lang="en" class="js" style=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<title>Lawnchair: webkitsqlite vs domStorage · jsPerf</title>
+<meta name="description" content="Comparing the speed of using a local SQLite database versus window.localStorage to store key/value pairs using Lawnchair.">
+<link rel="stylesheet" href="http://jsperf.com/_css/130824.css">
+<link href="http://jsperf.com/lawnchair-webkitsqlite-vs-domstorage.atom" rel="alternate" type="application/atom+xml" title="Atom feed for revisions of this test case">
+<script src="./Lawnchair  webkitsqlite vs domStorage · jsPerf_files/ga.js"></script><script>document.documentElement.className='js'</script>
+<!--[if lt IE 9]><script src="//a.jsperf.com/html5.js"></script><![endif]-->
+<style type="text/css"></style></head>
+<body style="">
+<article>
+<hgroup>
+	<h1>Lawnchair: webkitsqlite vs domStorage</h1>
+	<h2>JavaScript performance comparison</h2>
+</hgroup>
+<p class="meta">Revision 8 of this test case created <time datetime="2012-10-22T22:55:16+02:00" pubdate="">on 22nd October 2012</time></p>
+<section>
+<h2>Info</h2>
+<p>Comparing the speed of using a local SQLite database versus window.localStorage to store key/value pairs using Lawnchair.</p>
+</section>
+<section id="prep-code">
+<h2>Preparation code</h2>
+<pre><code><span class="sc2">&lt;<span class="kw2">script</span> <span class="kw3">src</span><span class="sy0">=</span><span class="st0">"https://raw.github.com/cscott/lawnchair/master/src/Lawnchair.js"</span>&gt;</span><span class="sc2">&lt;<span class="sy0">/</span><span class="kw2">script</span>&gt;</span><br><span class="sc2">&lt;<span class="kw2">script</span> <span class="kw3">src</span><span class="sy0">=</span><span class="st0">"https://raw.github.com/cscott/lawnchair/master/src/adapters/dom.js"</span>&gt;</span><span class="sc2">&lt;<span class="sy0">/</span><span class="kw2">script</span>&gt;</span><br><span class="sc2">&lt;<span class="kw2">script</span> <span class="kw3">src</span><span class="sy0">=</span><span class="st0">"https://raw.github.com/cscott/lawnchair/master/src/adapters/webkit-sqlite.js"</span>&gt;</span><span class="sc2">&lt;<span class="sy0">/</span><span class="kw2">script</span>&gt;</span></code></pre>
+</section>
+<section>
+<h2>Preparation code output</h2>
+<div class="user-output">
+
+
+</div>
+</section>
+<section id="runner">
+<h2>Test runner</h2>
+<p id="firebug"><strong>Warning! For accurate results, please disable Firebug before running the tests. <a href="http://jsperf.com/faq#firebug-warning">(Why?)</a></strong></p>
+<p id="java"><strong>Java applet disabled.</strong></p>
+<p id="status">Ready to run.</p>
+<div id="controls" class="show"><button id="run" type="button">Run tests</button></div>
+<table id="test-table">
+	<caption>Testing in <span id="user-agent">Chrome 26.0.1410.43 on OS X 10.7.5</span></caption>
+	<thead>
+		<tr>
+			<th colspan="2">Test</th>
+			<th title="Operations per second (higher is better)">Ops/sec</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<th scope="row" id="title-1" tabindex="0" title="Click to run this test again."><div>DOM</div></th>
+			<td class="code"><pre><code><span class="kw2">var</span> myData<span class="sy0">;</span><br>lawnchair_dom.<span class="me1">nuke</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span><br>lawnchair_dom.<span class="me1">save</span><span class="br0">(</span>someData<span class="sy0">,</span> <span class="kw2">function</span><span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span><br>&nbsp;lawnchair_dom.<span class="me1">get</span><span class="br0">(</span><span class="st0">'my-uuid'</span><span class="sy0">,</span> <span class="kw2">function</span><span class="br0">(</span>r<span class="br0">)</span> <span class="br0">{</span><br>&nbsp; myData <span class="sy0">=</span> r<span class="sy0">;</span><br>&nbsp; lawnchair_dom.<span class="me1">remove</span><span class="br0">(</span><span class="st0">'my-uuid'</span><span class="br0">)</span><span class="sy0">;</span><br>&nbsp;<span class="br0">}</span><span class="br0">)</span><br><span class="br0">}</span><span class="br0">)</span><span class="sy0">;</span></code></pre></td>
+			<td id="results-1" class="results" title="">ready</td>
+		</tr>
+		<tr>
+			<th scope="row" id="title-2" tabindex="0" title="Click to run this test again."><div>SQL</div></th>
+			<td class="code"><pre><code><span class="kw2">var</span> myData<span class="sy0">;</span><br>lawnchair_sql.<span class="me1">nuke</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span><br>lawnchair_sql.<span class="me1">save</span><span class="br0">(</span>someData<span class="sy0">,</span> <span class="kw2">function</span><span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span><br>&nbsp;lawnchair_sql.<span class="me1">get</span><span class="br0">(</span><span class="st0">'my-uuid'</span><span class="sy0">,</span> <span class="kw2">function</span><span class="br0">(</span>r<span class="br0">)</span> <span class="br0">{</span><br>&nbsp; myData <span class="sy0">=</span> r<span class="sy0">;</span><br>&nbsp; lawnchair_sql.<span class="me1">remove</span><span class="br0">(</span><span class="st0">'my-uuid'</span><span class="br0">)</span><span class="sy0">;</span><br>&nbsp;<span class="br0">}</span><span class="br0">)</span><br><span class="br0">}</span><span class="br0">)</span><span class="sy0">;</span></code></pre></td>
+			<td id="results-2" class="results" title="">ready</td>
+		</tr>
+	</tbody>
+</table>
+</section>
+<section>
+<h2 id="results">Compare results of other browsers</h2>
+<p><span id="charts"><strong>Chart type:</strong> <a href="http://jsperf.com/lawnchair-webkitsqlite-vs-domstorage/8#">bar</a>, <a href="http://jsperf.com/lawnchair-webkitsqlite-vs-domstorage/8#">column</a>, <a href="http://jsperf.com/lawnchair-webkitsqlite-vs-domstorage/8#">line</a>, <a href="http://jsperf.com/lawnchair-webkitsqlite-vs-domstorage/8#">pie</a>, <a href="http://jsperf.com/lawnchair-webkitsqlite-vs-domstorage/8#">table</a></span><br><span id="filters"><strong>Filter:</strong> <a href="http://jsperf.com/lawnchair-webkitsqlite-vs-domstorage/8#">popular</a>, <a href="http://jsperf.com/lawnchair-webkitsqlite-vs-domstorage/8#">all</a>, <a href="http://jsperf.com/lawnchair-webkitsqlite-vs-domstorage/8#">desktop</a>, <a href="http://jsperf.com/lawnchair-webkitsqlite-vs-domstorage/8#">family</a>, <a href="http://jsperf.com/lawnchair-webkitsqlite-vs-domstorage/8#">major</a>, <a href="http://jsperf.com/lawnchair-webkitsqlite-vs-domstorage/8#">minor</a>, <a href="http://jsperf.com/lawnchair-webkitsqlite-vs-domstorage/8#">mobile</a>, <a href="http://jsperf.com/lawnchair-webkitsqlite-vs-domstorage/8#">prerelease</a></span></p><iframe name="bs-chart-frame" id="bs-chart-frame" frameborder="0" scrolling="no"></iframe>
+</section>
+<section>
+<h2>Revisions</h2>
+<p>You can <a href="http://jsperf.com/lawnchair-webkitsqlite-vs-domstorage/8/edit" rel="nofollow">edit these tests or add even more tests to this page</a> by appending <code>/edit</code> to the URL. Here’s a list of current revisions for this page:</p>
+<ul>
+	<li><a href="http://jsperf.com/lawnchair-webkitsqlite-vs-domstorage/3">Revision 3</a>: published by Andrew Hedges <time datetime="2010-09-23T00:42:55+02:00" pubdate="">on 23rd September 2010</time></li>
+	<li><a href="http://jsperf.com/lawnchair-webkitsqlite-vs-domstorage/4">Revision 4</a>: published <time datetime="2011-06-21T13:25:30+02:00" pubdate="">on 21st June 2011</time></li>
+	<li><a href="http://jsperf.com/lawnchair-webkitsqlite-vs-domstorage/5">Revision 5</a>: published <time datetime="2011-07-07T06:10:59+02:00" pubdate="">on 7th July 2011</time></li>
+	<li><a href="http://jsperf.com/lawnchair-webkitsqlite-vs-domstorage/7">Revision 7</a>: published <time datetime="2012-06-06T23:49:49+02:00" pubdate="">on 6th June 2012</time></li>
+	<li class="current"><a href="./Lawnchair  webkitsqlite vs domStorage · jsPerf_files/Lawnchair  webkitsqlite vs domStorage · jsPerf.html">Revision 8</a>: published <time datetime="2012-10-22T22:55:16+02:00" pubdate="">on 22nd October 2012</time></li>
+	<li><a href="http://jsperf.com/lawnchair-webkitsqlite-vs-domstorage/9">Revision 9</a>: published by Gartz <time datetime="2012-10-22T23:14:26+02:00" pubdate="">on 22nd October 2012</time> and last updated <time datetime="2012-10-23T00:05:14+02:00">on 23rd October 2012</time></li>
+	<li><a href="http://jsperf.com/lawnchair-webkitsqlite-vs-domstorage/10">Revision 10</a>: published by zhao <time datetime="2013-04-08T17:42:06+02:00" pubdate="">on 8th April 2013</time></li>
+</ul>
+</section>
+<section id="comments"><h1>0 comments</h1><div id="comments-wrapper">
+<form action="http://jsperf.com/lawnchair-webkitsqlite-vs-domstorage/8#comment-form" method="post" id="comment-form">
+	<fieldset>
+		<h2>Add a comment</h2>
+		<div><label for="author">Name <em title="This field is required">*</em> </label><input type="text" name="author" id="author" required=""></div>
+		<div><label for="author-email">Email <em title="This field is required">*</em> </label><label class="inline"><input type="email" name="author-email" id="author-email" required=""> (only used for Gravatar)</label></div>
+		<div><label for="author-url">URL </label><input type="url" name="author-url" id="author-url"></div>
+		<div><label for="message">Message <em title="This field is required">*</em> <span>Markdown syntax is allowed</span></label><textarea name="message" id="message" maxlength="16777215" required=""></textarea></div>
+		<div class="question"><label for="question">Are you a spammer? <span>(just answer the question)</span> </label><input type="text" name="question" id="question"></div>
+		<div class="buttons"><input type="submit" class="submit" value="Add comment"></div>
+	</fieldset>
+</form>
+</div>
+</section>
+</article>
+<footer><a href="http://jsperf.com/">Add test</a> · <a href="http://jsperf.com/browse">Latest</a> · <a href="http://jsperf.com/popular">Popular</a> · <a href="http://jsperf.com/faq">FAQ</a> · <a href="http://jsperf.com/faq#donate">Donate</a> · <a href="http://twitter.com/jsperf" rel="nofollow">twitter: @jsperf</a> · <a href="https://github.com/mathiasbynens/jsperf.com">source on GitHub</a> · <a href="http://benchmarkjs.com/">Benchmark.js</a> · by <a href="http://mathiasbynens.be/">@mathias</a> and <a href="http://jsperf.com/contributors">contributors</a></footer>
+<script src="./Lawnchair  webkitsqlite vs domStorage · jsPerf_files/benchmark-42.js"></script><script>
+  ui.browserscope.key = 'agt1YS1wcm9maWxlcnINCxIEVGVzdBjx68wSDA';
+
+  ui.add('DOM', '\
+    var myData;\n\
+    lawnchair_dom.nuke();\n\
+    lawnchair_dom.save(someData, function() {\n\
+     lawnchair_dom.get(\'my-uuid\', function(r) {\n\
+      myData = r;\n\
+      lawnchair_dom.remove(\'my-uuid\');\n\
+     })\n\
+    });'
+  )
+  .add('SQL', '\
+    var myData;\n\
+    lawnchair_sql.nuke();\n\
+    lawnchair_sql.save(someData, function() {\n\
+     lawnchair_sql.get(\'my-uuid\', function(r) {\n\
+      myData = r;\n\
+      lawnchair_sql.remove(\'my-uuid\');\n\
+     })\n\
+    });'
+  );
+</script>
+
+<script src="./Lawnchair  webkitsqlite vs domStorage · jsPerf_files/Lawnchair.js"></script>
+<script src="./Lawnchair  webkitsqlite vs domStorage · jsPerf_files/dom.js"></script>
+<script src="./Lawnchair  webkitsqlite vs domStorage · jsPerf_files/webkit-sqlite.js"></script>
+
+</body></html>
